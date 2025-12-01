@@ -24,7 +24,7 @@ def rotate(current_rot: int, direction: str, number: int) -> tuple[int, int]:
 def rotate_and_check_zeros(current_rot: int, rotation_str: str, number_zeros: int) -> tuple[int, int]:
     direction, number = strip_rotate(rotation_str)
     current_rot, number_clicks = rotate(current_rot, direction, number)
-    number_zeros = number_zeros + number_clicks
+    number_zeros += number_clicks
     return number_zeros, current_rot
 
 
