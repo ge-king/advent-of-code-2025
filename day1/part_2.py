@@ -1,10 +1,9 @@
-import re
 import click
 
 
 def strip_rotate(rotation: str) -> tuple[str, int]:
-    direction, num = re.match(r"([A-Za-z]+)(\d+)", rotation).groups()
-    number = int(num)
+    direction = rotation[0]
+    number = int(rotation[1:])
     return direction, number
 
 
@@ -34,7 +33,7 @@ def rotate_and_check_zeros(current_rot: int, rotation_str: str, number_zeros: in
 @click.option('--initial-rotation', 'initial_rot', default=50)
 def main(input_path, initial_rot):
     with open(input_path) as file:
-        lines = [line.rstrip() for line in file]
+        lines = [line.strip() for line in file]
 
     number_zeros = 0
     current_rot = initial_rot
